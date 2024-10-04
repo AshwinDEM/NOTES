@@ -101,7 +101,9 @@ F-Measure is the harmonic mean of precision and recall
 $$
 F-Measure = \frac{2 * Precision * Recall}{Precision + Recall}
 $$
+
 Kappa value of a model indicated the adjusted model accuracy
+
 $$
 k = \frac{Observed Agreement - Expected Agreement}{1 - Expected Agreement}
 $$
