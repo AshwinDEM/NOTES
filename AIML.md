@@ -107,6 +107,7 @@ Kappa value of a model indicated the adjusted model accuracy
 $$
 k = \frac{Observed Agreement - Expected Agreement}{1 - Expected Agreement}
 $$
+
 where Observed Agreement is the Accuracy and 
 
 $$
