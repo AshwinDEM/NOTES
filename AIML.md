@@ -75,6 +75,7 @@ Correlation Matrix
 $$
 Accuracy = \frac{TP + TN}{TP + FP + FN + TN}
 $$
+
 Sensitivity measures the proportion of positive cases that were correctly classified
 Specificity measures the proportion of negative cases that were correctly classified
 
@@ -113,3 +114,49 @@ where Observed Agreement is the Accuracy and
 $$
 Expected Agreement = \frac{(TP * FP + TP * FN) + (TN * FN + TN * FP) }{TP + FP + FN + TN}
 $$
+
+
+## Unit 4
+
+### Adaboost Algorithm Steps
+
+Set initial weights for each column = 1 / Number of points
+Repeat for each column in the dataset
+REMEMBER THAT it's always -alpha if correctly classified and plus alpha if negatively classified
+#### Step 1
+Compare expected classification value with actual value
+
+#### Step 2
+Calculate error 
+
+$$
+e_i = \sum incorrectly classified weights
+$$
+
+#### Step 3
+Calculate weight of weak classifier
+
+$$
+\alpha_i = \frac{1}{2} \frac{ln(1 - e)}{e}
+$$
+
+#### Step 4
+Calculate Normalizing Factor
+
+$$
+Z = \sum wt * e^{-\alpha if correctly classified} and \sum wt * e^{\alpha if incorrectly classified}
+$$
+
+#### Step 5
+Update weights
+
+$$
+New weight = weight * e^{-\alpha} 
+$$
+
+if correct and 
+
+$$
+New weight = weight * e^{\alpha} 
+$$
+if incorrect
