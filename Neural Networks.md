@@ -1,5 +1,13 @@
 
+### Learning Processes
 
+In the context of neural networks, learning is defined as a process by which the free parameters of a neural network are adapted through a process of stimulation by the environment in which the network is embedded. The type of learning is determined by the manner in which the parameter change takes place.
+The learning process happens through the following chain of events:
+1. The neural network is *stimulated*  by an environment.
+2. The neural network *undergoes changes* in its free parameters as a result of the stimulation.
+3. The neural network responds in a new way to the environment because of the changes that have occurred in its internal structure.
+A prescribed set of well defined rules for the solution of a learning problem is called a learning algorithm.
+#### Error Correction Learning
 
 
 ### Back Propagation
@@ -95,4 +103,48 @@ where neuron $j$ is hidden.
 
 ### Activation Functions
 
-In order to find $\delta$ for each neuron of the multilayer perceptron requires knowledge of the derivative of the activation function. For derivative to exist, the function must be continuous.
+In order to find $\delta$ for each neuron of the multilayer perceptron requires knowledge of the derivative of the activation function. For derivative to exist, the function must be continuous. 2 forms of sigmoidal nonlinearity for activation functions are:
+
+1. Logistic Function: General form of the function is:
+
+$$
+\psi'(v_j(n)) = \frac{1}{1 + e^{-a.v_j(n)}} \qquad a > 0
+$$
+
+The actual derivative is easy to calculate, the form that we're interested in is
+
+$$
+\psi'(v_j(n)) = ay_j(n)[1-y_j(n)]
+$$
+
+Since, $y_j(n)$ is the output from the neuron, it becomes simple to use this interpretation of the function, instead of the calculated derivative. So, by simple substitution,
+
+$$
+\delta_j(n) = e_j(n).ay_j(n)[1-y_j(n)] \qquad output neuron
+$$
+
+$$
+\delta_j(n) = ay_j(n)[1-y_j(n)]\sum_k\delta_k(n)w_{kj}(n) \qquad hidden
+$$
+
+2. Hyperbolic Tangent Function: Another common function
+
+$$
+\psi(v_j(n)) = a.tanh(bv_j(n)) \qquad (a, b) > 0
+$$
+
+Not many people remember the hyperbolic trigonometric derivatives, so
+
+$$
+\psi'(v_j(n)) = a.sech^2(bv_j(n))
+$$
+
+$$
+= ab[1 - tanh^2(bv_j(n))]
+$$
+
+$$
+= \frac{b}{a}[a - y_j(n)][a + y_j(n)]
+$$
+
+
