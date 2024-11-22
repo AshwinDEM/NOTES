@@ -1,4 +1,7 @@
 
+
+
+
 ### Back Propagation
 
 The point of backpropagation is to send the error signal back to the hidden neurons, so that learning occurs there as well. 
@@ -18,12 +21,14 @@ Consider the below diagram,
 
 
 The local induced field $v_j(n)$ is the dot product of the weight vector and input vector.
+
 $$
 v_j(n) = \sum_{i=0}^n w_{ij}(n).y_i(n)
 $$
 
 The above image considers the bias to be a part of the weights by setting the input for it to +1.
 The output signal $y_j(n)$ is application of an activation function on $v_j(n)$.
+
 $$
 y_j(n) = \psi_j(v_j(n))
 $$
@@ -85,7 +90,8 @@ This is the case for an output neuron, since the desired output is known. Howeve
 $$
 \delta_j(n) = \psi'(v_j(n))\sum_k\delta_k(n)w_{kj}(n)
 $$
-where neuron j is hidden.
+
+where neuron $j$ is hidden.
 
 ### Activation Functions
 
