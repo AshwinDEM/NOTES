@@ -1,20 +1,20 @@
 
 Here, is a quick summary of data preprocessing and common machine learning commands
 #### Preprocessing
-##### Dropping values
+### Dropping values
 ```python
 df.dropna() # Drop all rows with NaN values in the dataset
 df.dropna(subset = []) # Drop all rows with NaN values in colummns in subset
 df.drop_duplicates() # Drop all duplicate rows
 ```
 
-##### Changing datatype
+### Changing datatype
 ``` python
 df['col'] = df['col'].astype(float) # Convert all values in col to float
 df['col'] = pd.to_numeric(df['col'], errors = 'coerce') # Converts all values to numeric, if it cannot convert, it sets it as NaN
 ```
 
-##### Outlier Handling
+### Outlier Handling
 Removing data points that are outside 3 standard deviations
 
 ```python
@@ -23,14 +23,14 @@ std = df['col'].std()
 df = df[df['col'] >= mean - 3 * std & df['col'] <= mean + 3 * std]
 ```
 
-##### Filtering
+### Filtering
 
 ```python
 df_filtered = df[df['col'] > value] # Select rows that are greater than some value
-df_filtered = df[['A', 'B']] # Selects only rows A and B
+df_filtered = df[['A', 'B']] # Selects only columns A and B
 ```
 
-##### Normalisation
+### Normalisation
 
 Rescales the data to fit between -1 and 1
 ```python
@@ -42,14 +42,14 @@ $$
 df[col] = \frac{df[col] - df[col].min()}{df[col].max() - df[col].min()}
 $$
 
-##### Standardisation
+### Standardisation
 
 Data has a mean of 0 and standard deviation of 1.
 ```python
 df['col'] = (df['col'] - df['col'].mean())/df['col'].std()
 ```
 
-##### Feature Encoding
+### Feature Encoding
 Converting categorical variables to numerical format
 
 1. Label Encoder assigns a unique value to each category. 
@@ -65,7 +65,7 @@ encoder = OneHotEncoder()
 df['col'] = encoder.fit_transform(df['col'])
 ```
 
-##### Dimensionality Reduction
+### Dimensionality Reduction
 Reduces the number of features, but stores the important information.
 
 1. **Principal component analysis** projects the data into a lower dimension
