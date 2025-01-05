@@ -148,3 +148,34 @@ $$
 $$
 
 
+
+
+## Recurrent Neural Networks (RNN)
+
+### GRUs
+
+![](ann/gru.png)
+
+The math behind the working of the GRUs is:
+1. The Reset gate(r) and the Update gate(z) are computed using the current input `x` and the previous hidden state $h_{t-1}$. 
+
+$$
+r_t = sigmoid(W_r * [h_{t-1}, x_t])  
+$$$$ 
+z_t = sigmoid(W_z * [h_{t-1}, x_t])
+$$
+
+2. The candidate activation vector $\tilde{h_t}$ is computed using the current input `x` and a modified version of the previous hidden state that is "reset" by the reset gate:
+
+$$
+\tilde{h_t} = tanh(W_h * [r_t * h_{t-1}, x_t])
+$$
+
+where $W_h$ is another weight matrix.
+
+3. The new hidden state $h_t$ is computed by combining the candidate activation vector with the previous hidden state, weighted by the update gate:
+
+$$ 
+h_t = (1 - z_t) * h_{t-1} + z_t * \tilde{h_t}
+$$
+
