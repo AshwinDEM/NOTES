@@ -148,6 +148,70 @@ $$
 $$
 
 
+## Convolutional Neural Networks
+
+### Backpropagation
+
+$$
+Z = K * X + B
+$$
+
+So, there are three things that we need to backpropagate to minimize the error, $K$, $X$, $B$. 
+Given a `3 x 3` input, `2 x 2` filter, and bias.
+
+
+$$
+\left(\begin{array}{cc} 
+Z_{11} & Z_{12}\\
+Z_{21} & Z_{22}
+\end{array}\right)
+=
+\left(\begin{array}{cc} 
+K_{11} & K_{12}\\
+K_{21} & K_{22}
+\end{array}\right)
+*
+\left(\begin{array}{ccc} 
+X_{11} & X_{12} & X_{13}\\
+X_{21} & X_{22} & X_{23}\\
+X_{31} & X_{32} & X_{33}
+\end{array}\right)
++
+\left(\begin{array}{cc} 
+B_{11} & B_{12}\\
+B_{21} & B_{22}
+\end{array}\right)
+$$ 
+$$
+Z_{11} = K_{11}X_{11} + K_{12}X_{12} + X_{21}K_{21} + X_{22}K_{22} + B_{11}
+$$
+
+$$
+Z_{12} = K_{11}X_{12} + K_{12}X_{13} + K_{21}X_{22} + K_{22}X_{23} + B_{12}
+$$
+
+To solve:
+
+$$
+\frac{\partial L}{\partial K}, \frac{\partial L}{\partial X}, \frac{\partial L}{\partial B}
+$$
+
+
+$$
+\frac{\partial L}{\partial K} = \frac{\partial L}{\partial Z} \cdot \frac{\partial Z}{\partial K}
+$$
+
+$$
+\frac{\partial L}{\partial K_{mn}} = \sum_i \sum_j \frac{\partial L}{\partial Z_{ij}} \cdot \frac{\partial Z_{ij}}{\partial K_{mn}}
+$$
+
+$$
+\frac{\partial L}{\partial K_{11}} = \frac{\partial L}{\partial Z_{11}}
+  X_{11} + \frac{\partial L}{\partial Z_{12}}
+  X_{12} + \frac{\partial L}{\partial Z_{21}}
+  X_{21} + \frac{\partial L}{\partial Z_{21}}
+  X_{22}
+$$
 
 
 ## Recurrent Neural Networks (RNN)
